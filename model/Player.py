@@ -1,8 +1,8 @@
-import connector
+from .connector import Connector
 
 
 class Player:
-    def __init__(self, full_name, phone, email, rating):
+    def __init__(self, full_name="jhon", phone="doe", email="jhon.doe@gmail.com", rating=10):
         self.fullname = full_name
         self.phone = phone
         self.email = email
@@ -10,7 +10,7 @@ class Player:
 
     def create(self):
         try:
-            db = connector.Connector()
+            db = Connector()
             db.cursor.execute("INSERT INTO player (fullname,rating,phone,email) VALUES (?,?,?,?)",(self.fullName, self.phone, self.email, self.rating))
             db.connect.commit()
             db.cursor.close()
@@ -20,7 +20,7 @@ class Player:
 
     def read(id):
         try:
-            db = connector.Connector()
+            db = Connector()
 
             data = db.cursor.execute("SELECT * FROM player WHERE id = ?",(id)).fetchone()
             db.connect.commit()
@@ -32,7 +32,7 @@ class Player:
 
     def update(self,id):
         try:
-            db = connector.Connector()
+            db = Connector()
 
             db.cursor.execute("UPDATE player SET fullName = ? , rating = ? , phone = ? , email = ? WHERE id = ?;",(self.fullname,self.rating,self.phone,self.email,id))
             db.connect.commit()
@@ -43,8 +43,8 @@ class Player:
 
     def delete(id):
         try:
-            db = connector.Connector()
-            db.cursor.execute("DELETE FROM  player WHERE id = ? ", (id,))
+            db = Connector()
+            db.cursor.execute("DELETE FROM  player WHERE id = ? ", (id))
 
             db.connect.commit()
             db.connect.close()
@@ -56,7 +56,7 @@ class Player:
 
     def readAll():
         try:
-            db = connector.Connector()
+            db = Connector()
 
             data = db.cursor.execute("SELECT * FROM player").fetchall()
             db.connect.commit()

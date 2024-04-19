@@ -1,4 +1,5 @@
-import connector
+from .connector import Connector
+
 
 class Tournament:
     def __init__(self, owner, title, type, place, date):
@@ -11,7 +12,7 @@ class Tournament:
     def create(self):
         try:
 
-            db = connector.Connector()
+            db = Connector()
             db.cursor.execute("INSERT INTO tournament (title,place,date,name_of_creator,type) VALUES (?,?,?,?,?)",(self.title, self.place, self.date, self.owner, self.type))
             db.connect.commit()
             db.connect.close()
@@ -21,7 +22,7 @@ class Tournament:
 
     def read(id):
         try:
-            db = connector.Connector()
+            db = Connector()
 
             data = db.cursor.execute("SELECT * FROM tournament WHERE id = ?",(id)).fetchone()
             db.connect.commit()
@@ -33,7 +34,7 @@ class Tournament:
 
     def update(self,id):
         try:
-            db = connector.Connector()
+            db = Connector()
 
             db.cursor.execute("UPDATE tournament SET title = ? , place = ? , name_of_creator = ? WHERE id = ?;",(self.title, self.place, self.owner,id))
             db.connect.commit()
@@ -44,7 +45,7 @@ class Tournament:
 
     def delete(self,id):
         try:
-            db = connector.Connector()
+            db = Connector()
             db.cursor.execute("DELETE FROM  tournament WHERE id = ? ", (id))
 
             db.connect.commit()

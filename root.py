@@ -4,7 +4,7 @@ from src.list_tournament_page2 import TournamentList # Class
 from src.player_page import PlayerPage #class
 from src.touranement_creation_page import TouranementCreationPage #class
 from PIL import Image
-from src.message_box import MessageBox
+from src.components.message_box import MessageBox
 customtkinter.set_default_color_theme("./config/custom_theme.json")
 
 
