@@ -11,13 +11,12 @@ The Tournament Manager is a Python-based application designed to facilitate the 
 
 ## Screenshots
 
-<br>
 Tournament
 ![App Screenshot](https://github.com/HichamDe/Tournament_manager/blob/main/docs/Screenshot%202024-04-19%20193249.png?raw=true)
-<br>
+
 List Tournament
 ![App Screenshot](https://github.com/HichamDe/Tournament_manager/blob/main/docs/Screenshot%202024-04-19%20193525.png?raw=true)
-<br>
+
 Players
 ![App Screenshot](https://github.com/HichamDe/Tournament_manager/blob/main/docs/Screenshot%202024-04-19%20193548.png?raw=true)
 
